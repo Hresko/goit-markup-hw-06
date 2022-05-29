@@ -240,8 +240,8 @@ address {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 1;
-    min-width: 528px;
-    min-height: 581px;
+    width: 528px;
+    padding: 40px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -249,34 +249,213 @@ address {
     border-radius: 4px;
     transition: opacity 250ms var(--transition-timing),
       transform 250ms var(--transition-timing);
-
   }
 
-    .close-button {
-      position: absolute;
-      top: 8px;
-      right: 8px;
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      margin: 0;
-      width: 30px;
-      height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 30px;
 
-      color: rgba(0, 0, 0, 1);
-      background-color: rgba(255, 255, 255, 1);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: color 250ms var(--transition-timing);
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color 250ms var(--transition-timing);
+    }
+    
+    .close-button:hover,
+    .close-button:focus {
+      color: rgba(33, 150, 243, 1);
     }
   
     .close-button-icon {
       fill: currentColor;
-      width: 11px;
-      height: 11px;
+    }
+
+    .modal-title {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 12px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.15;
+      color: var(--title-text-color);
+    }
+
+    .contact-form {
+      text-align: center;
+    }
+
+    .form-field {
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+
+    .form-label {
+      display: inline-block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      line-height: 1.17;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+    }
+
+    .form-input-block {
+      position: relative;
+      display: block;
+    }
+
+    .form-input {
+      display: flex;
+      width: 100%;
+      height: 40px;
+      padding: 12px;
+      padding-left: 42px;
+    }
+    .form-input,
+    .form-comment{
+      color: var(--title-text-color);
+      border: 1px solid rgba(33, 33, 33, 0.2);
+      border-radius: 4px;
+      transition: border-color 250ms var(--transition-timing);
+      cursor: pointer;
+    }
+    .form-input-block:hover .form-input,
+    .form-input-block:focus .form-input,
+    .form-comment:hover,
+    .form-comment:focus,
+    .form-input:focus-within  {
+      border-color: rgba(33, 150, 243, 1);
+      outline: 0;
+    }
+
+    .form-input-block:focus-within .form-icon {
+      color: rgba(33, 150, 243, 1);
+    }
+
+    .form-icon {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      color: var(--title-text-color);
+      fill: currentColor;
+      transform: translateY(-50%);
+      transition: color 250ms var(--transition-timing);
+    }
+
+    .comment {
+      margin-bottom: 20px;
+    }
+    
+    .form-comment {
+      display: flex;
+      width: 100%;
+      height: 120px;
+      padding: 12px 16px;
+      resize: none;
+      overflow:auto;
+    }
+
+    .form-checkbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .form-checkbox:hover .checkbox-icon-unchecked {
+      border-color: rgba(33, 150, 243, 1);
+    }
+    .checkbox-container {
+      position: relative;
+      display: block;
+      width: 16px;
+      height: 15px;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    .checkbox:checked + .checkbox-icon-checked {
+      opacity:1;
+    }
+    .checkbox-icon-checked {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(33, 150, 243, 1) ;
+      color: white;
+      fill: currentColor;
+      background-clip: border-box;
+      border-radius: 2px;
+      opacity: 0;
+      z-index: 2;
+      transition: opacity 250ms var(--transition-timing);
+    }
+
+    .checkbox-icon-unchecked {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(33, 33, 33, 1);
+      border-radius: 2px;
+      transition: border-color 250ms var(--transition-timing);
+    }
+
+    .checkbox-label {
+      cursor: pointer;
+    }
+
+    .checkbox-labe-link {
+      color: rgba(33, 150, 243, 1);
+      text-decoration: underline;
+    }
+
+    .form-button-submit {
+      padding: 10px 55px;
+      min-width: 200px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.87;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 1);
+      background: rgba(33, 150, 243, 1);
+      border: 0;
+      border-radius: 4px;
+      box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+      transition: background-color 250ms var(--transition-timing);
+    }
+
+    .form-button-submit:hover,
+    .form-button-submit:focus {
+      background-color: rgba(24, 140, 232, 1);
+      ;
     }
 /* Наші переваги */
 
@@ -506,7 +685,8 @@ address {
   margin-right: 70px;
 }
 
-.address-text {
+.address-text,
+.footer-subscribe-title {
   margin-bottom: 20px;
   font-weight: 700;
   line-height: 16px;
@@ -569,7 +749,73 @@ address {
   margin-bottom: 9px;
 }
 
+.footer-subscribe {
+  margin-left: 93px;
+}
 
+.footer-subscribe-title {
+ margin-bottom: 20px;
+}
+.subscribe-form {
+  display: flex;
+}
+
+.footer-subscribe-email {
+  width: 358px;
+  margin-right: 12px;
+  padding: 15px 16px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 1);
+  background-color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  transition: border-color 250ms var(--transition-timing);
+}
+
+.footer-subscribe-email:focus,
+.footer-subscribe-email:hover {
+  border-color: rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+
+.footer-subscribe-button {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(33, 150, 243, 1);
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  transition: background-color 250ms var(--transition-timing);
+}
+
+.footer-subscribe-button:hover,
+.footer-subscribe-button:focus {
+  background-color: rgba(24, 140, 232, 1);
+}
+
+.footer-subscribe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.send-icon {
+  margin-left: 10px;
+  fill: currentColor;
+}
 /* Портфоліо */
 
 .examples-section { 
